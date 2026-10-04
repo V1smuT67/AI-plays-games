@@ -1,0 +1,45 @@
+{
+  "manifest_version": 3,
+  "name": "Tetris AI — online-tetris.ru",
+  "version": "0.2.0",
+  "description": "Solo и PvP, настройка темпа, локальный ИИ и GPT для Solo.",
+  "minimum_chrome_version": "111",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "http://127.0.0.1/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://online-tetris.ru/",
+        "https://online-tetris.ru/pvp/classic*",
+        "https://online-tetris.ru/pvp/season*"
+      ],
+      "js": [
+        "core.js",
+        "page.js"
+      ],
+      "world": "MAIN",
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "https://online-tetris.ru/",
+        "https://online-tetris.ru/pvp/classic*",
+        "https://online-tetris.ru/pvp/season*"
+      ],
+      "js": [
+        "bridge.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
