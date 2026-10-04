@@ -1,0 +1,8 @@
+<!doctype html><html lang="ru"><meta charset="utf-8"><title>Tetris AI</title>
+<style>body{width:330px;padding:16px;background:#152131;color:#eee;font:14px system-ui}h1{font-size:20px}input[type=text],select,button{box-sizing:border-box;width:100%;padding:9px;margin:8px 0;background:#233449;color:white;border:1px solid #71849a;border-radius:6px}small{color:#bcc9d8}button{background:#286b5b;cursor:pointer}#status{white-space:pre-wrap}</style>
+<h1>Tetris AI · Solo / PvP</h1><label>Полный адрес локального сервера<input id="connection" type="text" placeholder="http://127.0.0.1:12345/#..." autocomplete="off"></label>
+<small>Скопируй адрес из файла logs/connection.json. Это локальный токен, не ключ OpenAI.</small>
+<label><select id="mode"><option value="local">Локальный ИИ · бесплатно</option><option value="gpt">GPT · платные API-запросы</option></select></label>
+<label><input id="enabled" type="checkbox"> Разрешить запросы к локальному серверу</label>
+<button id="save">Сохранить</button><p id="status"></p><small>Открой online-tetris.ru, начни Solo или матч 1 на 1, затем нажми «Старт ИИ» на панели. Esc останавливает бота. В PvP доступен локальный ИИ; матч идёт без пауз. Темп регулируется ползунком на игровой панели.</small>
+<script src="popup.js"></script></html>
