@@ -1,0 +1,12 @@
+<!doctype html><html lang="ru"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Подключить Online Tetris</title>
+<style>body{max-width:780px;margin:50px auto;padding:0 24px;background:#152131;color:#eaf2fa;font:17px/1.6 system-ui}h1{font-size:32px}li{margin:18px 0}input{box-sizing:border-box;width:100%;padding:12px;background:#23384b;border:1px solid #5d8195;border-radius:8px;color:white}button{padding:10px 20px;margin-top:12px;background:#8ddfc2;border:0;border-radius:8px;cursor:pointer}a{color:#8ddfc2}code{color:#e9d3a2}small{color:#bdcbd9}</style>
+<h1>Подключение к online-tetris.ru</h1><p>Локальный сервер запущен. Следующий шаг — установить адаптер в Chrome или Edge.</p>
+<ol><li>Открой страницу <code>chrome://extensions</code> или <code>edge://extensions</code>. Включи «Режим разработчика».</li><li>Нажми «Загрузить распакованное расширение». Выбери папку <code>online-extension</code> внутри папки этой программы.</li><li>Открой значок расширения <b>Tetris AI — online-tetris.ru Solo</b>. Вставь адрес ниже, выбери режим и включи «Разрешить запросы к локальному серверу». Нажми «Сохранить».</li></ol>
+<input id="address" readonly aria-label="Адрес подключения"><button id="copy">Скопировать адрес</button><p id="status" role="status"></p>
+<ol start="4"><li>Открой <a href="https://online-tetris.ru/" target="_blank" rel="noopener noreferrer">online-tetris.ru</a> в том же браузере. Если сайт уже открыт, обнови его.</li><li>Нажми на сайте «Играть Solo», затем на панели расширения «Старт ИИ». Кнопка «Стоп» или Esc останавливает управление.</li></ol>
+<p><b>Если Solo не запускается:</b> сначала дождись исправной загрузки самого сайта. Расширение не заменяет его игру и серверы.</p>
+<small>Локальный режим бесплатный. GPT требует запуска сервера с --model и ключом OPENAI_API_KEY. Встроенный браузер Codex не подходит для установки этого расширения; используй Chrome или Edge.</small>
+<script>
+const t=location.hash.slice(1)||sessionStorage.getItem('tetris-token')||'';if(t)sessionStorage.setItem('tetris-token',t);history.replaceState(null,'',location.pathname);document.getElementById('address').value=location.origin+'/#'+t;
+document.getElementById('copy').onclick=async()=>{try{await navigator.clipboard.writeText(document.getElementById('address').value);document.getElementById('status').textContent='Адрес скопирован.';}catch(e){document.getElementById('address').select();document.getElementById('status').textContent='Нажми Ctrl+C, чтобы скопировать выделенный адрес.';}};
+</script></html>
